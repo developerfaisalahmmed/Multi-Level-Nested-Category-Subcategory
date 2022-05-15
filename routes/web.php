@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/shop', function () {
+
+    $product = \App\Models\Shop::get()->toTree();
+
+    return view('shop', compact('product'));
+
+})->name('shop');
